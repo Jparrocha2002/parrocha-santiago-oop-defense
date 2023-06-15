@@ -12,25 +12,25 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
     exit();
 }
 
-$writer = new Writer();
-$writer->setup();
+$create = new Writer();
+$create->setup();
 
 if(!empty($_POST['first_name']))
 {
-    $writer->insert($_POST['first_name'], $_POST['last_name'], $_POST['gender']);
+    $create->insert($_POST['first_name'], $_POST['last_name'], $_POST['gender']);
 }
 
-if($writer){
+if($create){
     $response = [
-        "code" => 201,
+        "code" => 200,
         "message" => "Writer added successfully"
     ];
 } else {
     $response = [
-        "code" => 403,
+        "code" => 404,
         "message" => "Writer added unsuccessfully"
     ];
 }
 
-echo json_encode($response);
+echo json_encode($response)
 ?>

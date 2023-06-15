@@ -7,7 +7,7 @@ class Writer extends Dbname implements Table
     public function setup()
     {
         $this->initialize();
-        $this->createTbl();
+        $this->createTbl();  
     }
 
     public $tblname = "writer";
@@ -34,7 +34,7 @@ class Writer extends Dbname implements Table
 
 
 
-    public function fetchWriter($params)
+    public function getWriterRecord($params)
     {
         if($_SERVER['REQUEST_METHOD'] != 'GET'){
             echo json_encode([
@@ -71,7 +71,7 @@ class Writer extends Dbname implements Table
        
     }
 
-    public function getAll()
+    public function fetchAll()
     {
         $list = [];
 

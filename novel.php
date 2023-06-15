@@ -32,7 +32,7 @@ class Novel extends Dbname implements Table
         $this->sql($insert);
     }
 
-    public function fetchWriter($params)
+    public function getNovelRecord($params)
     {
         if($_SERVER['REQUEST_METHOD'] != 'GET'){
             echo json_encode([
@@ -69,7 +69,7 @@ class Novel extends Dbname implements Table
        
     }
 
-    public function getAll()
+    public function fetchAll()
     {
         $list = [];
 
