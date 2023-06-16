@@ -17,7 +17,7 @@ $create->setup();
 
 if(!empty($_POST['title']))
 {
-    $create->insert($_POST['title'],$_POST['status'],$_POST['release_date']);
+    $create->insert($_POST['title'], $_POST['status'], $_POST['release_date']);
 }
 
 if($create){

@@ -4,9 +4,12 @@ abstract class Database
     abstract function initialize();
 }
 
-interface Table
+interface Functions
 {
     public function createTbl();
+    public function getRecord($params);
+    public function fetchAll();
+    public function delete($id);
 }
 
 

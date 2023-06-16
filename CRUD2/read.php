@@ -7,5 +7,6 @@ $read = new Novel();
 
 $read->setup();
 
-echo $read->getNovelRecord($_GET);
+echo $read->getRecord($_GET);
+
 ?>

@@ -1,5 +1,5 @@
 <?php
-include "../writer.php";
+include "../novel.php";
 
 header('Content-type: application/json; charset=UTF-8');
 
@@ -12,25 +12,27 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
     exit();
 }
 
-$create = new Writer();
-$create->setup();
+$delete = new Novel();
+$delete->setup();
 
-if(!empty($_POST['first_name']))
+if(!empty($_POST['id']))
 {
-    $create->insert($_POST['first_name'], $_POST['last_name'], $_POST['gender']);
+    $delete->delete($_POST['id']);
 }
 
-if($create){
+if($delete){
     $response = [
-        "code" => 200,
-        "message" => "Writer added successfully"
+        "code" => 201,
+        "message" => "Novel deleted successfully"
     ];
 } else {
     $response = [
         "code" => 404,
-        "message" => "Writer added unsuccessfully"
+        "message" => "Novel deleted unsuccessfully"
     ];
 }
 
-echo json_encode($response)
+echo json_encode($response);
+
+
 ?>

@@ -1,7 +1,7 @@
 <?php
 include "db.php";
 
-class Novel extends Dbname implements Table
+class Novel extends Dbname implements Functions
 {
 
     public function setup()
@@ -32,7 +32,7 @@ class Novel extends Dbname implements Table
         $this->sql($insert);
     }
 
-    public function getNovelRecord($params)
+    public function getRecord($params)
     {
         if($_SERVER['REQUEST_METHOD'] != 'GET'){
             echo json_encode([
@@ -59,7 +59,7 @@ class Novel extends Dbname implements Table
         if($data->num_rows == 0){
             $response = [
                 "code" => 404,
-                "message" => "no Writer List found"
+                "message" => "no Novel record found"
             ];
 
             return json_encode($response);
@@ -87,5 +87,22 @@ class Novel extends Dbname implements Table
         }
         return json_encode($list);
     }
+
+    public function delete($id)
+    {
+        $delete = "DELETE FROM $this->tblname WHERE id = $id";
+        $this->sql($delete);
+    }
+
+    public function update($title, $status, $release_date, $id)
+    {
+        $update = "UPDATE $this->tblname SET title = '$title', status = '$status'
+        , release_date = '$release_date' WHERE id = $id";
+    }
+
+    // public function update($id, $columns, $new_data) 
+    // {
+    //     return $this->sql("UPDATE $this->tblname SET $columns = \"$new_data\" WHERE id = $id");
+    // }
 }
 ?>
