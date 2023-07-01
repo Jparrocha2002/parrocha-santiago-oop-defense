@@ -3,10 +3,11 @@ include "../Tables/users.php";
 
 header('Content-type: application/json; charset=UTF-8');
 
-$create = new Users();
+$update = new Users();
 
-$create->setup();
+$update->setup();
 
-echo $create->create($_POST);
+echo $update->update($_POST);
+
 
 ?>

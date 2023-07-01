@@ -95,8 +95,8 @@ class Users extends Dbname implements Functions
         }   
 
         $username = $params['username'];
-        $email = $params['email'];
         $password = $params['password'];
+        $email = $params['email'];
         $account_name = $params['account_name'];
         $address = $params['address'];
         $contact = $params['contact'];
@@ -109,18 +109,18 @@ class Users extends Dbname implements Functions
         if($isAdded)
         {
             $response = [
-                'code' => 200,
-                'message' => 'User Added Successfully'
+                "code" => 200,
+                "message" => "User Created Successfully"
             ];
 
         } else {
             $response = [
-                'code' => 404,
-                'message' => 'User Added Unsuccessfully'
+                "code" => 201,
+                "message" => "User Created Successfully"
             ];
-
-            return json_encode($response);
         }
+            return json_encode($response);
+
     }
 
     public function getRecord($params)

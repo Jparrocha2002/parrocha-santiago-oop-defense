@@ -3,10 +3,10 @@ include "../Tables/users.php";
 
 header('Content-type: application/json; charset=UTF-8');
 
-$create = new Users();
+$read = new Users();
 
-$create->setup();
+$read->setup();
 
-echo $create->create($_POST);
+echo $read->getRecord($_GET);
 
 ?>
