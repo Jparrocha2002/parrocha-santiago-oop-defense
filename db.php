@@ -3,7 +3,7 @@ include "polymorphism.php";
 
 class Dbname extends Database
 {
-    private $conn;
+    public $conn;
     private $servername = "localhost";
     private $username = "root";
     private $password = "";
@@ -13,10 +13,10 @@ class Dbname extends Database
     {
         $this->conn = new mysqli($this->servername, $this->username, $this->password);
         $this->conn->query("CREATE DATABASE IF NOT EXISTS $this->dbname");
-        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname); 
+        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
     }
     
-    public function sql($sql)
+    protected function sql($sql)
     {
         return $this->conn->query($sql);
     }

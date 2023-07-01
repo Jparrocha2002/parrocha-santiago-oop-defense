@@ -6,10 +6,12 @@ abstract class Database
 
 interface Functions
 {
-    public function createTbl();
+    public function createTable();
+    public function create($params);
     public function getRecord($params);
     public function fetchAll();
-    public function delete($id);
+    public function delete($params);
+    public function update($params);
 }
 
 

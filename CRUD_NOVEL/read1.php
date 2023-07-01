@@ -1,9 +1,9 @@
 <?php
-include "../novel.php";
+include "../Tables/novels.php";
 
 header('Content-type: application/json; charset=UTF-8');
 
-$read = new Novel();
+$read = new Novels();
 
 $read->setup();
 
